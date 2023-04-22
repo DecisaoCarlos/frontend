@@ -1,0 +1,51 @@
+
+<app-nav (mudouvalor)="onmudouvalor($event)"></app-nav>
+
+<div class="container" *ngIf="inicia > 1">
+  <div class="row">
+    <div class="col-lg-2"></div>
+      <div class="col-lg-28 my-3">
+        <h1 class="text-center">To Do List</h1>
+        <p class="text-center lead"> {{titulo}}</p>
+        <div class="responsive-table">
+          <table class="table my-3" >
+            <tr>
+              <td width=400>Descrição</td>            
+              <td> Order Criação</td>
+            </tr>              
+            <tr *ngFor="let atividade of atividades">
+              <td >{{ atividade.descricao.substr(0,50) }}</td>     
+              <button type="button" class="btn btn-primary"(click)="editar(atividade)" [disabled]="inicia==3"> Editar</button>  
+              <button  type="button" class="btn btn-primary" class="btn btn-success"(click)="concluir(atividade)"> {{btnCanCon}}</button>  
+              <button type="button" class="btn btn-danger"(click)="excluir(atividade)" [disabled]="inicia==3"> Excluir</button>    
+                     
+            </tr>  
+          </table>
+        </div>
+      </div>    
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="inicia == 1">
+  <div class="row">
+    <div class="col-lg-2"></div>
+      <div class="col-lg-8 my-3">
+        <h1 class="text-center">Atividade</h1>
+        <p class="text-center lead">Crie sua atividade abaixo.</p>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group">
+            <label for="nome">Atividade</label>
+            <input type="text" class="form-control" name="descricao"
+            id="nome" placeholder="Inserir Atividade" [(ngModel)]="inserir.descricao"> 
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>      
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
