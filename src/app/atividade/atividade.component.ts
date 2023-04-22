@@ -25,11 +25,15 @@ export class AtividadeComponent implements OnInit{
     this.inserir = {}; 
     this.listar(evento); 
   }
-  onSubmit(form){            
-    this.AtividadeService.registrar(this.inserir).subscribe((lista: Atividade[]) => {
+  onSubmit(form){              
+    if(this.inserir.descrica){      
+      this.AtividadeService.registrar(this.inserir).subscribe((lista: Atividade[]) => {
       this.lista = lista;
       this.inserir = { "descricao": ""};
-    });             
+      });   
+    }else {
+      console.log('insira algo ai');
+    }          
   }
 
   concluir(atividade: Atividade){    
