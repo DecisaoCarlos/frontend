@@ -11,14 +11,13 @@
           <table class="table my-3" >
             <tr>
               <td width=400>Descrição</td>            
-              <td> Order Criação</td>
+              <td> Order {{order}}</td>
             </tr>              
             <tr *ngFor="let atividade of atividades">
-              <td >{{ atividade.descricao.substr(0,50) }}</td>     
+              <td >{{ atividade.descricao.substr(0,47) }}</td>     
               <button type="button" class="btn btn-primary"(click)="editar(atividade)" [disabled]="inicia==3"> Editar</button>  
               <button  type="button" class="btn btn-primary" class="btn btn-success"(click)="concluir(atividade)"> {{btnCanCon}}</button>  
-              <button type="button" class="btn btn-danger"(click)="excluir(atividade)" [disabled]="inicia==3"> Excluir</button>    
-                     
+              <button type="button" class="btn btn-danger"(click)="excluir(atividade)" [disabled]="inicia==3"> Excluir</button>                         
             </tr>  
           </table>
         </div>

@@ -15,6 +15,7 @@ export class AtividadeComponent implements OnInit{
   inserir: any = { "descricao": ""}
   titulo: String = '';
   btnCanCon: String = '';
+  order: String = '';
   constructor(private AtividadeService: AtividadeService){}
   ngOnInit() {    
     //this.listar(false);      
@@ -52,6 +53,7 @@ export class AtividadeComponent implements OnInit{
     if (evento == 3) { 
       this.titulo = 'Atividades concluidas';
       this.btnCanCon = 'Refazer';
+      this.order = 'Conclusão';
       this.AtividadeService.listtrue().subscribe((atividades: Atividade[]) => {
         this.atividades = atividades;      
       });    
@@ -59,6 +61,7 @@ export class AtividadeComponent implements OnInit{
       if (evento == 2) { 
         this.titulo = 'Atividades a serem concluidas';
         this.btnCanCon = 'Finalizar';
+        this.order = 'Criação';
         this.AtividadeService.listfalse().subscribe((atividades: Atividade[]) => {
           this.atividades = atividades;      
         }); 
