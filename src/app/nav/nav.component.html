@@ -10,11 +10,16 @@
   <body>
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a routerLink="" class="navbar-brand" (click)="incrementa(2)">Atividades Pendentes</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-          
+              
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a (click)="incrementa(2)" routerLink="" class="nav-link">Atividades Pendentes</a>
+          </li>
+        </ul>
+      </div>
+
+  
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
