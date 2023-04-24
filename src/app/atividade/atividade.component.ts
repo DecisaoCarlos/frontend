@@ -26,7 +26,7 @@ export class AtividadeComponent implements OnInit{
     this.listar(evento); 
   }
   onSubmit(form){              
-    if(this.inserir.descrica){      
+    if(this.inserir.descricao){      
       this.AtividadeService.registrar(this.inserir).subscribe((lista: Atividade[]) => {
       this.lista = lista;
       this.inserir = { "descricao": ""};
